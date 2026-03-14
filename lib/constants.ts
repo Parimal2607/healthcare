@@ -1,5 +1,6 @@
-﻿import {
+import {
   BarChart3,
+  Bell,
   Building2,
   FileCheck2,
   LayoutDashboard,
@@ -31,6 +32,7 @@ export const navItems: NavItem[] = [
   { label: "Analytics", href: "/analytics", icon: BarChart3, roles: ["admin", "manager", "member"] },
   { label: "Consent", href: "/consent", icon: FileCheck2, roles: ["admin", "manager", "member"] },
   { label: "Integrations", href: "/integrations", icon: Plug, roles: ["admin", "manager", "member"] },
+  { label: "Notifications", href: "/notifications", icon: Bell, roles: ["admin", "manager", "member"] },
   { label: "Settings", href: "/settings", icon: Settings, roles: ["admin", "manager", "member"] },
   { label: "Team", href: "/team", icon: ShieldCheck, roles: ["admin"] }
 ];

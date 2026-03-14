@@ -1,4 +1,4 @@
-﻿export const AUTH_ROUTES = ["/login", "/register"] as const;
+export const AUTH_ROUTES = ["/login", "/register"] as const;
 
 export const PUBLIC_ROUTES = ["/", ...AUTH_ROUTES] as const;
 
@@ -12,6 +12,7 @@ export const PRIVATE_ROUTE_PREFIXES = [
   "/analytics",
   "/consent",
   "/integrations",
+  "/notifications",
   "/settings",
   "/profile",
   "/team"
