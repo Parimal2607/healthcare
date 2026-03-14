@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { X } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -9,7 +9,7 @@ export function AppToaster() {
   const removeToast = useToastStore((state) => state.removeToast);
 
   return (
-    <div className="pointer-events-none fixed right-4 top-4 z-[100] flex w-[320px] flex-col gap-2">
+    <div className="pointer-events-none fixed right-4 top-4 z-50 flex w-80 flex-col gap-2">
       {toasts.map((toast) => (
         <div
           key={toast.id}

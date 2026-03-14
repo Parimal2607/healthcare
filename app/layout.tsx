@@ -1,18 +1,21 @@
-﻿import "./globals.css";
 import type { Metadata } from "next";
-import type { ReactNode } from "react";
-import { AppToaster } from "@/components/common/AppToaster";
 import { ThemeProvider } from "@/components/common/ThemeProvider";
+import { AppToaster } from "@/components/common/AppToaster";
+import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Healthcare Data Exchange Platform",
-  description: "Unified Healthcare Data Platform"
+  title: "PulseBridge - Health Exchange",
+  description: "Healthcare SaaS platform"
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout({
+  children
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body>
+      <body className="min-h-screen antialiased">
         <ThemeProvider>
           {children}
           <AppToaster />

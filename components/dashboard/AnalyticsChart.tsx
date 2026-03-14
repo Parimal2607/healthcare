@@ -49,7 +49,9 @@ function ChartTooltip({ active, payload, label }: TooltipProps) {
   return (
     <div className="rounded-md border border-border bg-card px-3 py-2 text-xs shadow-sm">
       <p className="font-medium text-foreground">{label}</p>
-      <p className="text-muted-foreground">{payload[0].name}: {payload[0].value}</p>
+      <p className="text-muted-foreground">
+        {payload[0].name}: {payload[0].value}
+      </p>
     </div>
   );
 }
@@ -60,11 +62,11 @@ function SectionLegend({ children }: { children: ReactNode }) {
 
 export function AnalyticsChart({ title, type, data, valueKey, labelKey = "name" }: AnalyticsChartProps) {
   return (
-    <Card>
+    <Card className="soft-card">
       <CardHeader className="pb-2">
         <CardTitle className="text-base">{title}</CardTitle>
       </CardHeader>
-      <CardContent className="h-72">
+      <CardContent className="h-60 sm:h-64">
         <ResponsiveContainer width="100%" height="100%">
           {type === "line" ? (
             <LineChart data={data} margin={{ top: 8, right: 12, left: 0, bottom: 0 }}>
@@ -86,7 +88,7 @@ export function AnalyticsChart({ title, type, data, valueKey, labelKey = "name" 
             <PieChart margin={{ top: 8, right: 8, left: 8, bottom: 16 }}>
               <Tooltip content={<ChartTooltip />} />
               <Legend wrapperStyle={{ fontSize: "12px", color: "hsl(var(--muted-foreground))" }} />
-              <Pie data={data} dataKey={valueKey} nameKey={labelKey} innerRadius={64} outerRadius={102} paddingAngle={2}>
+              <Pie data={data} dataKey={valueKey} nameKey={labelKey} innerRadius={58} outerRadius={95} paddingAngle={2}>
                 {data.map((entry, index) => (
                   <Cell key={`cell-${String(entry[labelKey])}-${index}`} fill={pieColors[index % pieColors.length]} />
                 ))}
@@ -94,11 +96,7 @@ export function AnalyticsChart({ title, type, data, valueKey, labelKey = "name" 
             </PieChart>
           )}
         </ResponsiveContainer>
-        {/* <SectionLegend>
-          {type === "line" && "Trend over time"}
-          {type === "bar" && "Category comparison"}
-          {type === "pie" && "Distribution by segment"}
-        </SectionLegend> */}
+        
       </CardContent>
     </Card>
   );

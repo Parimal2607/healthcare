@@ -1,13 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Bell, Search } from "lucide-react";
+import { Bell, Menu, Search } from "lucide-react";
 import { ThemeToggle } from "@/components/layout/ThemeToggle";
 import { UserMenu } from "@/components/layout/UserMenu";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
-export function Header() {
+interface HeaderProps {
+  onOpenMobileMenu?: () => void;
+}
+
+export function Header({ onOpenMobileMenu }: HeaderProps) {
   const [unreadCount, setUnreadCount] = useState(0);
 
   useEffect(() => {
@@ -31,11 +35,16 @@ export function Header() {
   }, []);
 
   return (
-    <header className="flex h-14 items-center gap-2 rounded-lg border border-border bg-card px-3">
+    <header className="flex h-14 items-center gap-2 rounded-xl border border-border bg-card/95 px-3 shadow-sm">
+      <Button variant="ghost" size="icon" className="md:hidden" onClick={onOpenMobileMenu} aria-label="Open menu">
+        <Menu className="h-4 w-4" />
+      </Button>
+
       <div className="relative w-full max-w-md">
         <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
         <Input placeholder="Search patients, providers, claims..." className="pl-9" />
       </div>
+
       <div className="ml-auto flex items-center gap-1">
         <Button
           variant="ghost"
